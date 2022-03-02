@@ -32,9 +32,30 @@ class Movie
     }
 
 }
-
-
-
-
-
 ?>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <?php foreach($movies as $movie):
+            $obj_movie = new Movie($movie['id'], $movie['title'], $movie['genre'], $movie['years']) 
+        ?>
+        <!-- card-movie -->
+        <div class="card-movie">
+           
+        </div>
+        
+        
+        <?php endforeach?>
+    </div>
+</body>
+</html>
