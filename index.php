@@ -6,13 +6,15 @@ class Movie
 {
     public $id;
     public $title;
+    public $poster;
     public $genre;
     public $years;
 
-    public function __construct($id, $title, $genre, $years)
+    public function __construct($id, $title, $poster, $genre, $years)
     {
         $this->id = $id;
         $this->title = $title;
+        $this->poster = $poster;
         $this->genre = $genre;
         $this->years = $years;
     }
@@ -20,9 +22,9 @@ class Movie
     public function onAir()
     {
         if($this->years < '2021'){
-           return 'Coming Soon';
+           return 'On Air';
         }else{
-            return 'On Air';
+            return 'Coming Soon';
         }
     }
 }
@@ -37,15 +39,21 @@ class Movie
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        img{
+            width: 150px;
+        }
+    </style>
 </head>
 <body>
     <div>
         <?php foreach($movies as $movie):
-            $obj_movie = new Movie($movie['id'], $movie['title'], $movie['genre'], $movie['years']) 
+            $obj_movie = new Movie($movie['id'], $movie['title'], $movie['poster'], $movie['genre'], $movie['years']) 
         ?>
 
         <!-- card-movie -->
         <div class="card-movie">
+            <img src="<?= $obj_movie->poster ?>" alt="">
            <h2><?= $obj_movie->title ?></h2>
            <p><?= $obj_movie->genre ?></p>
            <span><?= $obj_movie->years ?></span>
