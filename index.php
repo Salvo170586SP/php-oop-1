@@ -43,10 +43,18 @@ class Movie
         img{
             width: 150px;
         }
+        .movies-container{
+            display: flex;
+            justify-content: center;
+        }
+        .card-movie{
+            width: min-content;
+            padding: 30px;
+        }
     </style>
 </head>
 <body>
-    <div>
+    <div class="movies-container">
         <?php foreach($movies as $movie):
             $obj_movie = new Movie($movie['id'], $movie['title'], $movie['poster'], $movie['genre'], $movie['years']) 
         ?>
