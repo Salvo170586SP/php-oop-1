@@ -9,22 +9,22 @@ class Movie
     public $poster;
     public $genre;
     public $years;
+    public $on_air;
 
-    public function __construct($id, $title, $poster, $genre, $years)
+    public function __construct($id, $title, $poster, $genre, $years, $on_air = 'Coming Soon' )
     {
         $this->id = $id;
         $this->title = $title;
         $this->poster = $poster;
         $this->genre = $genre;
         $this->years = $years;
+        $this->on_air = $on_air;
     }
  
     public function onAir()
     {
         if($this->years < '2021'){
            return 'On Air';
-        }else{
-            return 'Coming Soon';
         }
     }
 }
