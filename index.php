@@ -1,11 +1,4 @@
 <?php
-/* 
-
-   => all'interno della classe sono dichiarate delle variabili d'istanza
-   => all'interno della classe è definito un costruttore
-   => all'interno della classe è definito almeno un metodo
-- vengono istanziati almeno due oggetti ‘Movie’ e stampati a schermo i valori delle relative proprietà
-*/
 
 $movies = [
     ['id'=> '5185', 'title'=>'Il Gladiatore','genre'=>'storico','years'=>'2000'],
@@ -21,7 +14,6 @@ class Movie
     public $title;
     public $genre;
     public $years;
-    
 
     public function __construct($id, $title, $genre, $years)
     {
@@ -30,7 +22,15 @@ class Movie
         $this->genre = $genre;
         $this->years = $years;
     }
-
+ 
+    public function onAir()
+    {
+        if($this->years < '2021'){
+           return 'Coming Soon';
+        }else{
+            return 'On Air';
+        }
+    }
 }
 ?>
 
@@ -55,6 +55,7 @@ class Movie
            <h2><?= $obj_movie->title ?></h2>
            <p><?= $obj_movie->genre ?></p>
            <span><?= $obj_movie->years ?></span>
+           <h3><?= $obj_movie->onAir() ?></h3>
         </div>
            
         <?php endforeach?>
