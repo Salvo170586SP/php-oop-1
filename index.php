@@ -23,8 +23,10 @@ class Movie
  
     public function onAir()
     {
-        if($this->years < '2021'){
+        if($this->years < 2021){
            return 'On Air';
+        }else{
+            return $this->on_air;
         }
     }
 }
@@ -61,7 +63,7 @@ class Movie
 
         <!-- card-movie -->
         <div class="card-movie">
-            <img src="<?= $obj_movie->poster ?>" alt="">
+            <img src="<?= $obj_movie->poster ?>" alt="<?= $obj_movie->title ?>">
            <h2><?= $obj_movie->title ?></h2>
            <p><?= $obj_movie->genre ?></p>
            <span><?= $obj_movie->years ?></span>
