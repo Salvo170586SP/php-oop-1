@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+     background-color: #434343;
+     font-family: 'Ubuntu Mono', monospace;
+}
+
+.movies-container{
+    margin: 0 auto;
+    max-width: 1080px;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.card-movie{
+    width: 300px;
+    background-color: #262626;
+    padding: 30px;
+    border: 1px solid white;
+    box-shadow: 0 0 5px 1px black;
+    margin: 10px; 
+    color: white;
+}
+
+.card-movie img{
+    width: 150px;
+    height: 220px;
+    box-shadow: 0 0 10px 3px black;
+
+}
+
+.card-movie h2{
+    margin: 15px 0;
+}
+.card-movie p, span, h3{
+    margin: 10px 0;
+}

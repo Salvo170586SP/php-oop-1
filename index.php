@@ -11,7 +11,7 @@ class Movie
     public $years;
     public $on_air;
 
-    public function __construct($id, $title, $poster, $genre, $years, $on_air = 'Coming Soon' )
+    public function __construct($id, $title, $poster, $genre, $years, $on_air = 'Coming Soon')
     {
         $this->id = $id;
         $this->title = $title;
@@ -20,12 +20,12 @@ class Movie
         $this->years = $years;
         $this->on_air = $on_air;
     }
- 
+
     public function onAir()
     {
-        if($this->years < 2021){
-           return 'On Air';
-        }else{
+        if ($this->years < 2021) {
+            return 'On Air';
+        } else {
             return $this->on_air;
         }
     }
@@ -36,41 +36,35 @@ class Movie
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        img{
-            width: 150px;
-        }
-        .movies-container{
-            display: flex;
-            justify-content: center;
-        }
-        .card-movie{
-            width: min-content;
-            padding: 30px;
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <div class="movies-container">
-        <?php foreach($movies as $movie):
-            $obj_movie = new Movie($movie['id'], $movie['title'], $movie['poster'], $movie['genre'], $movie['years']) 
+        <?php foreach ($movies as $movie) :
+            $obj_movie = new Movie($movie['id'], $movie['title'], $movie['poster'], $movie['genre'], $movie['years'])
         ?>
 
-        <!-- card-movie -->
-        <div class="card-movie">
-            <img src="<?= $obj_movie->poster ?>" alt="<?= $obj_movie->title ?>">
-           <h2><?= $obj_movie->title ?></h2>
-           <p><?= $obj_movie->genre ?></p>
-           <span><?= $obj_movie->years ?></span>
-           <h3><?= $obj_movie->onAir() ?></h3>
-        </div>
-           
-        <?php endforeach?>
+            <!-- card-movie -->
+            <div class="card-movie">
+                <img src="<?= $obj_movie->poster ?>" alt="<?= $obj_movie->title ?>">
+                <h2><?= $obj_movie->title ?></h2>
+                <p>Genere: <?= $obj_movie->genre ?></p>
+                <span>Anno di uscita: <?= $obj_movie->years ?></span>
+                <h3><?= $obj_movie->onAir() ?></h3>
+            </div>
+
+        <?php endforeach ?>
     </div>
 </body>
+
 </html>
